@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %} Register {% endblock title %}
+{% block mainbody %}
+{% if messages %}
+<style>
+  
+</style>
+<br>
+<div class="alert alert-success alert-dismissible fade show" role="alert" >
+  <strong>
+    <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+  </strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+<div class="row">
+  <br>
+  <div class="col-lg-12 col-12 m-auto">
+    <form action="" , method="POST" style="background-color: rgb(71, 151, 221); padding: 15px;">
+      {% csrf_token %}
+      <h1 style="text-align: center; color: black;">Register Here:</h1>
+      <br>
+      <div class="form-group " >
+        <label for="name" style="color: black;">Enter your Name:</label >
+        <input type="text" class="form-control" id="name" name="name" required style="color: black; background-color: white;" >
+      </div>
+
+      <br>
+      <div class="form-group">
+        <label for="email" style="color: black;">Enter your email:</label>
+        <input type="email" class="form-control" id="email" name="email" required style="color: black; background-color: white;">
+      </div>
+
+      <br>
+      <div class="form-group ">
+        <label for="interest_game" style="color: black;">Games you are interested in :</label>
+        <input type="text" class="form-control" id="interest_game" name="interest_game" style="color: black; background-color: white;">
+      </div>
+
+      <br>
+      <div class="form-group ">
+        <label for="skills" style="color: black;">Your Skills level (e.g., beginner, intermediate, advanced, expert) </label>
+        <input type="text" class="form-control" id="skills" name="skills" style="color: black; background-color: white;">
+      </div>
+
+      <br>
+      <div class="form-group ">
+        <label for="role" style="color: black;">Role you want to play (e.g., support, DPS, tank).</label>
+        <input type="text" class="form-control" id="role" name="role" style="color: black; background-color: white;">
+      </div>
+
+      <br>
+      <div class="form-group">
+        <label for="links" style="color: black;">Links to showcase your skills.</label>
+        <input type="text" class="form-control" id="links" name="links" style="color: black; background-color: white;">
+      </div>
+
+      <br>
+      <div class="form-outline w-70 mb-4">
+        <label class="form-label" for="message" style="color: black;">Message</label>
+        <textarea class="form-control" name="message" id="message" rows="3"
+          placeholder="Type here...." style="color: black; background-color: white;"></textarea>
+      </div>
+  
+      <br>
+      <button type="submit" class="btn btn-outline-primary">Submit</button>
+
+    </form>
+  </div>
+</div>
+{%endblock mainbody%}
